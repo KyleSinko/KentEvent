@@ -1,0 +1,83 @@
+$primary:#0081FF;
+$primary-dark:#0038A4;
+$highlight:#FFF221;
+$click-color:#E9C80F;
+$body-color:#8F8F8F;
+$box-shading: 2px 2px 10px rgba(0,0,0,.5);
+
+body{
+  perspective:800px;  //How many pixels the user is from the screen 
+  background: $body-color;
+}
+
+h1{
+  text-align: center;
+  color:#212E51;
+  font-family: Roboto;
+}
+
+h2{
+text-align: center;
+font-family:Roboto;
+}
+
+p{
+  text-align: center;
+  color:#4B526D;
+  font-family: Roboto;
+}
+
+label{
+font-family: Roboto;
+}
+
+.widget{
+  background:$primary;
+  width:400px;
+  font-family:Baskerville Old Face;
+  box-shadow: 2px 2px 10px rgba(0,0,0,1);
+  margin:auto;
+  position: relative;
+  transition-duration: 1s;
+  transform-style: preserve-3d;
+}
+.widget-header{
+  background:$primary-dark;
+  padding: 10px 150px;
+}
+
+.widget-body{
+  padding: 20px 20px;
+}
+
+.material-input{
+  background:none;
+  border:none;
+  border-bottom:solid 2px;
+  color:black;
+  padding:10px;
+  margin-bottom:10px;
+}
+.add-button{
+  padding:10px 20px;
+  font-weight:bold;
+  font-size:18px;
+  border:none;
+  background:$highlight;
+  margin:0px;
+  position:absolute;
+  bottom:-20px;
+  right:50px;
+  box-shadow:$box-shading;
+  cursor:pointer;
+  transition-duration: 0.5s;
+  transform:translatez(20px);
+}
+
+.widget:hover{
+  transform:rotatey(15deg);
+}
+
+.add-button:hover{
+  background:$click-color;
+}
