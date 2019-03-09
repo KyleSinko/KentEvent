@@ -1,0 +1,43 @@
+<html lang="en">
+    <!https://docs.google.com/document/d/17EgkcgGG3c9BHFp9FLc5ju0aUJBHBaX2WdoUqFnI5Zc/edit?usp=sharing>
+    <head>
+        <meta name="google-signin-scope" content="profile email">
+        <!–– You will need the client id from your project IAuth client @ console.developers.google.com->
+        <meta name="google-signin-client_id" content="153057713887-oqqbrlul9el1s9hq9lopknj15eno1r3o.apps.googleusercontent.com">
+    </head>
+
+    <body>
+    
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+        <script>
+            function onSignIn(googleUser) {
+                // Useful data for your client-side scripts:
+                var profile = googleUser.getBasicProfile();
+                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                console.log('Full Name: ' + profile.getName());
+                console.log('Given Name: ' + profile.getGivenName());
+                console.log('Family Name: ' + profile.getFamilyName());
+                console.log("Image URL: " + profile.getImageUrl());
+                console.log("Email: " + profile.getEmail());
+                
+                // The ID token you need to pass to your backend:
+                var id_token = googleUser.getAuthResponse().id_token;
+                console.log("ID Token: " + id_token);
+            }
+
+            //This renders button then 
+            function renderButton() {
+                gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSignIn,
+            });
+            }
+        </script>
+    
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  </body>
+</html>
