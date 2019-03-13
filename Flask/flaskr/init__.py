@@ -1,38 +1,32 @@
-from flask import Flask, render_template  #starts flaskproject 
-from flask_bootstrap import Bootstrap   #For framework
-from flask_scss import SCSS 
+import os
 
-app = Flask(__name__)
-Bootstrap(app)
+from flask import Flask
 
-@app.route("/")    #Routes 
-def renderLanding():
-    return render_template("landing.html")  #Function that renders them 
 
-@app.route("/login")
-def renderLogin():
-    return render_template("login/login.html")
+def create_app(test_config=None):
+    # create and configure the app
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_mapping(
+        SECRET_KEY='dev',
+        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
+    )
 
-@app.route("/login/forgot")
-def renderForgotPassword():
-    return render_template("login/forgot.html")
+    if test_config is None:
+        # load the instance config, if it exists, when not testing
+        app.config.from_pyfile('config.py', silent=True)
+    else:
+        # load the test config if passed in
+        app.config.from_mapping(test_config)
 
-@app.route("/register")
-def renderRegister():
-    return render_template("register/register.html")
+    # ensure the instance folder exists
+    try:
+        os.makedirs(app.instance_path)
+    except OSError:
+        pass
 
-@app.route("/profile")
-def renderProfile():
-    return render_template("profile/profile.html")
+    # a simple page that says hello
+    @app.route('/hello')
+    def hello():
+        return 'Hello, World!'
 
-@app.route("/profile/myevents")
-def renderMyEvents():
-    return render_template("profile/myevents.html")
-
-@app.route("/events")
-def renderEvents():
-    return render_template("events/events.html")  
-
-@app.route("/settings")
-def renderSettings():
-    return render_template("settings/settings.html")
+    return app
