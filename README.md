@@ -1,7 +1,7 @@
 # KentEvent
-This is the repository for the web application and let's get started!
-So the first thing fork this repo.
-Then in that forked repo git clone url.
+This is the repository for the web application and let's get started! <br>
+So the first thing fork this repo. <br>
+Then in that forked repo git clone url. <br>
 
 Then cd into KentEvent repo
 cd into the Flask file
