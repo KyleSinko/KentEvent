@@ -12,3 +12,8 @@ $env:FLASK_ENV="development" <br>
 flask run <br>
 
 Lastly, you are going to go to localhost:5000/route <br>
+
+Now to update your branch <br>
+git checkout branchname <br>
+git merge origin/master <br>
+git push origin branchname <br>
