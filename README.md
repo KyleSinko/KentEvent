@@ -14,7 +14,7 @@ flask run <br>
 Lastly, you are going to go to localhost:5000/route <br>
 
 **Now to update your branch <br>**
-If you just colned this repo, use git pull <br>
+If you just cloned this repo, use git pull <br>
 
 If you forked the repo<br>
 git checkout branchname <br>
