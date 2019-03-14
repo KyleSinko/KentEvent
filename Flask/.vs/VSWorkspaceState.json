@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\flaskr",
+    "\\flaskr\\instance",
+    "\\flaskr\\static",
+    "\\flaskr\\templates",
+    "\\flaskr\\templates\\auth",
+    "\\flaskr\\templates\\user"
+  ],
+  "SelectedNode": "\\flaskr\\templates\\base.html",
+  "PreviewInSolutionExplorer": false
+}
