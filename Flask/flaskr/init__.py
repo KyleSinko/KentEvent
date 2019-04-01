@@ -1,7 +1,6 @@
-import os
-
-from flask import Flask
-
+from flask import Flask , render_template
+from flask_bootstrap import Bootstrap
+Bootstrap(app)
 
 def create_app(test_config=None):
     # create and configure the app
@@ -24,9 +23,34 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
+    # Landing page
+    @app.route('/')
+    def Landing():
+        return render_template("landing.html")
+
+    #Login page 
+    @app.route('/login')
+    def Landing():
+        return render_template("login.html")
+
+    #Registration page 
+    @app.route('/register')
+    def Landing():
+        return render_template("register.html")
+
+    #Profile for creator 
+    @app.route('/creator')
+    def Landing():
+        return render_template("auth/creator.html")
+
+    #Profile for user
+    @app.route('/user')
+    def Landing():
+        return render_template("user/user.html")
+
+    #Events page
+    @app.route('/events')
+    def Landing():
+        return render_template("events.html")
 
     return app
