@@ -1,23 +1,33 @@
-from flask import Flask, redirect, render_template, request, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
+#https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient
+#pip install mysqlclient-1.4.2-cp37-cp37m-win32.whl
+from flask_sqlalchemy  import SQLAlchemy
+import sshtunnel
 
 app = Flask(__name__)
-SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{lou0891}:{engineering}@{lou0891.mysql.pythonanywhere-services.com}/{lou0891$default}".format(
-    username="lou0891",
-    password="engineering",
-    hostname="lou0891.mysql.pythonanywhere-services.com",
-    databasename="lou0891$default",
+
+tunnel = sshtunnel.SSHTunnelForwarder(
+	('ssh.pythonanywhere.com'), ssh_username="flimsyware",ssh_password="flimsythefish",
+	remote_bind_address=('flimsyware.mysql.pythonanywhere-services.com',3306)
 )
-app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
-app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+tunnel.start()
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://flimsyware:flimsydatabase@127.0.0.1:{}/flimsyware$default'.format(tunnel.local_bind_port)
 
 db = SQLAlchemy(app)
 
-# ID model, getting IDs from ID table
-class ID(db.Model):
+Bootstrap(app)
 
-    __tablename__ = "ID"
+results =db.engine.execute("SELECT * FROM University WHERE Name = \"Akron\";")
 
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(4096))
+@app.route('/')
+def Index():
+	temp = render_template('/user/index.html')
+	for result in results:
+		temp = temp + result[1] + " "
+	return temp
+
+
+
+if __name__ == '__main__': 
+	app.run()
