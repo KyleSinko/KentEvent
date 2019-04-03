@@ -29,7 +29,6 @@ def create_app(test_config=None):
     # Landing page
     @app.route('/')
     def Landing():
-        print("Landing")
         return render_template("landing.html")
 
     #Login page 
