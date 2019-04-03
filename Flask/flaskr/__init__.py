@@ -29,31 +29,32 @@ def create_app(test_config=None):
     # Landing page
     @app.route('/')
     def Landing():
+        print("Landing")
         return render_template("landing.html")
 
     #Login page 
     @app.route('/login')
-    def Landing():
+    def Login():
         return render_template("login.html")
 
     #Registration page 
     @app.route('/register')
-    def Landing():
+    def Register():
         return render_template("register.html")
 
     #Profile for creator 
     @app.route('/creator')
-    def Landing():
+    def Creator():
         return render_template("auth/creator.html")
 
     #Profile for user
     @app.route('/user')
-    def Landing():
+    def User():
         return render_template("user/user.html")
 
     #Events page
     @app.route('/events')
-    def Landing():
+    def Events():
         return render_template("events.html")
 
     return app
