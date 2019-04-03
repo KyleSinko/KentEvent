@@ -40,6 +40,7 @@ https://help.github.com/en/articles/fork-a-repo
 <br>
 <br>
 clone the repo
+<br>
 On the the page of your forked repo click on the green button that says "Clone or download". 
 <br>
 Copy the link in the menu that pops up.
@@ -61,7 +62,7 @@ In your terminal:
 <br>
 Go into the project folder you just cloned
 <br>
-cd branch
+cd KentEvent
 <br>
 <br>
 Create a remote of the repo you forked from
