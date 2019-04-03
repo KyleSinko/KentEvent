@@ -1,6 +1,7 @@
+import os
+
 from flask import Flask , render_template
 from flask_bootstrap import Bootstrap
-Bootstrap(app)
 
 def create_app(test_config=None):
     # create and configure the app
@@ -22,6 +23,8 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    Bootstrap(app)
 
     # Landing page
     @app.route('/')
