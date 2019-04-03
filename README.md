@@ -3,8 +3,10 @@
 Install Git
 https://git-scm.com/downloads
 <br>
+<br>
 Install Python with custom installation, make sure you have pip selected
 https://www.python.org/downloads/
+<br>
 <br>
 Install pipenv
 In your terminal: 
