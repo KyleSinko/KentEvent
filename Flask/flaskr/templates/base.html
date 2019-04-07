@@ -1,25 +1,19 @@
+
 <!doctype html>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <h1>Kent Event</h1>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/events">KentEvent</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+  <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand">
+          <img src= "https://cdn.discordapp.com/attachments/548520166611353602/563141120087949314/flynn.png" width="50" height="30" class="d-inline-block align-top" alt="">Flimsyware</a>
+      <span class="navbar-toggler-icon"></span>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="/login">Login</a>
+          <a class="nav-item nav-link" href="/register">Register</a>
+          <a class="nav-item nav-link disabled" href="/events">KentEvent</a>
+        </div>
+      </div>
+    </nav>
 {% block content %}{% endblock %}
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
