@@ -3,18 +3,17 @@
 
 {% block content %}
 <h1>KentEvent</h1>
-<div id = "container">
-    Start of conatiner
-<div class = "flex-item">
+<div class = "wrap">
+<div class = "column">
     <h3>Hello!</h3>
     <p>We are Flimsyware! I company comprised of 14 Computer Science students at Kent State University. Our vision is to to unite the campus and help students find their passion. We created KentEvent to bring people closer together and open them up to new safe events on the Kent State Campus.</p>
 </div>
-<div class = "flex-item">
+<div class = "column">
     <h3>Look for Fun Events!</h3>
     <img src= "https://cdn.discordapp.com/attachments/494316263972012044/564157814927523858/KentEvent_logo.png">
     <p>By regsitering and making an account, users will be allow to view events happening on campus! Events are posted by users that are considered to be "Hosts". This students are heads of University sectioned clubs and events to ensure that the events posted are safe.If you belive that you are a Host, make sure that you check the Host box during registeration.</p>
 </div>
-<div class ="flex-item">
+<div class ="column">
     <h3>Make Connections!</h3>
     <p>Users can search for certian events, and filter for catergories;however, the goal of KentEvent is explore new possibilites! Try something new and meet people that you might not normally interact with. Sign up today!</p>
 </div>
@@ -32,21 +31,17 @@
      font-size: 100px;
     }
 
- .container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 500px;
-    border: 1px black solid;
-    margin: 0 auto;
-
+ .wrap{
+    text-align: center;
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
     }
-    
- .flex-item{
-    width: 100px;
-    height: 200px;
-    border: 1px black solid;
-    background: #369;
+ 
+ .column{   
+    display: table-cell;
+    background-color: red; /*Optional*/
  }
 
  .hello{
@@ -54,12 +49,15 @@
      text-align:center;
      display:inline-block;
      background:green;
+     display:inline-block;
  }
  .fun{
     font-family:Roboto;
      text-align:center;
      display:inline-block;
      background:red;
+     margin:0 auto;
+     display:inline-block;
  }
 
  .connections{
@@ -67,6 +65,8 @@
      text-align:center;
      display:inline-block;
      background:powderblue;
+     display:inline-block;
+     
  }
  </style>
  {% endblock %}
